@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this project, please cite this software repository."
+title: "CryptoCore RV32: A PicoRV32 SoC with an AXI4-Lite Cryptographic Coprocessor"
+type: software
+authors:
+  - family-names: Cao
+    given-names: Thành An
+    affiliation: "Ho Chi Minh City University of Technology and Engineering"
+  - family-names: Phan
+    given-names: Khánh Trình
+    affiliation: "Ho Chi Minh City University of Technology and Engineering"
+keywords:
+  - RISC-V
+  - PicoRV32
+  - FPGA
+  - AXI4-Lite
+  - AES-128
+  - SHA-256
+  - ChaCha20
+  - PYNQ-Z2

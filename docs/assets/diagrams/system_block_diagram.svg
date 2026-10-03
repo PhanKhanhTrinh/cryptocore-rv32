@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1100" viewBox="0 0 1700 1100">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#111827"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#1d4ed8"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#dc2626"/>
+    </marker>
+    <style>
+      .title { font: 700 38px Arial, Helvetica, sans-serif; fill: #111827; }
+      .section-title-blue { font: 700 22px Arial, Helvetica, sans-serif; fill: #1d4ed8; }
+      .section-title-red { font: 700 22px Arial, Helvetica, sans-serif; fill: #dc2626; }
+      .box-title { font: 700 23px Arial, Helvetica, sans-serif; fill: #111827; }
+      .box-sub { font: 400 19px Arial, Helvetica, sans-serif; fill: #111827; }
+      .box-small { font: 700 16px Arial, Helvetica, sans-serif; fill: #111827; }
+      .box-note { font: 400 15px Arial, Helvetica, sans-serif; fill: #111827; }
+      .tiny { font: 400 13px Arial, Helvetica, sans-serif; fill: #111827; }
+      .addr-head { font: 700 16px Arial, Helvetica, sans-serif; fill: #1d4ed8; }
+      .addr-cell { font: 400 14px Arial, Helvetica, sans-serif; fill: #111827; }
+      .outer-blue { fill: #ffffff; stroke: #3730a3; stroke-width: 2; stroke-dasharray: 8 8; rx: 12; }
+      .outer-red { fill: #ffffff; stroke: #e11d48; stroke-width: 2; stroke-dasharray: 8 8; rx: 12; }
+      .cpu { fill: #d9ebff; stroke: #1d4ed8; stroke-width: 2; rx: 6; }
+      .bus { fill: #fff3c4; stroke: #b7791f; stroke-width: 2; rx: 6; }
+      .rom { fill: #ddf4d5; stroke: #16a34a; stroke-width: 2; rx: 6; }
+      .ram { fill: #eadcf9; stroke: #7c3aed; stroke-width: 2; rx: 6; }
+      .axi { fill: #ffdce2; stroke: #be123c; stroke-width: 2; rx: 6; }
+      .regfile { fill: #d9f0ff; stroke: #0284c7; stroke-width: 2; rx: 6; }
+      .controller { fill: #eadfff; stroke: #6d28d9; stroke-width: 2; rx: 6; }
+      .core-aes { fill: #fff1bf; stroke: #ca8a04; stroke-width: 2; rx: 6; }
+      .core-sha { fill: #dcfce7; stroke: #16a34a; stroke-width: 2; rx: 6; }
+      .core-cha { fill: #ccfbf1; stroke: #0f766e; stroke-width: 2; rx: 6; }
+      .panel { fill: #f8fafc; stroke: #64748b; stroke-width: 1.5; rx: 8; }
+      .line { stroke: #111827; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .ctrl { stroke: #1d4ed8; stroke-width: 2.5; fill: none; marker-end: url(#arrow-blue); }
+      .ctrl-branch { stroke: #1d4ed8; stroke-width: 2.5; fill: none; }
+      .status { stroke: #dc2626; stroke-width: 2.5; fill: none; marker-end: url(#arrow-red); }
+      .status-branch { stroke: #dc2626; stroke-width: 2.5; fill: none; }
+      .thin { stroke: #111827; stroke-width: 1.2; fill: none; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1700" height="1100" fill="#ffffff"/>
+  <text x="850" y="56" text-anchor="middle" class="title">PicoRV32 AXI SoC with Memory-Mapped Crypto Coprocessor</text>
+
+  <!-- Processor system -->
+  <rect x="30" y="88" width="620" height="820" class="outer-blue"/>
+  <text x="340" y="128" text-anchor="middle" class="section-title-blue">PROCESSOR SYSTEM</text>
+
+  <rect x="80" y="165" width="285" height="210" class="cpu"/>
+  <text x="222" y="245" text-anchor="middle" class="box-title">PicoRV32 AXI CPU</text>
+  <text x="222" y="278" text-anchor="middle" class="box-sub">picorv32_axi</text>
+  <text x="222" y="318" text-anchor="middle" class="box-sub">Runs boot ROM firmware</text>
+
+  <rect x="505" y="150" width="105" height="660" class="bus"/>
+  <text x="557" y="420" text-anchor="middle" class="box-title">AXI4-Lite</text>
+  <text x="557" y="455" text-anchor="middle" class="box-title">Crossbar</text>
+  <text x="557" y="492" text-anchor="middle" class="box-sub">1 master</text>
+  <text x="557" y="520" text-anchor="middle" class="box-sub">3 slaves</text>
+
+  <rect x="105" y="475" width="290" height="140" class="rom"/>
+  <text x="250" y="520" text-anchor="middle" class="box-title">Instruction ROM</text>
+  <text x="250" y="552" text-anchor="middle" class="box-sub">boot_rom.hex</text>
+  <text x="250" y="584" text-anchor="middle" class="box-sub">512 words @ 0x0000_0000</text>
+
+  <rect x="105" y="690" width="290" height="125" class="ram"/>
+  <text x="250" y="735" text-anchor="middle" class="box-title">Data RAM</text>
+  <text x="250" y="767" text-anchor="middle" class="box-sub">Firmware status / data</text>
+  <text x="250" y="797" text-anchor="middle" class="box-sub">1024 words @ 0x1000_0000</text>
+
+  <path d="M 365 215 L 505 215" class="line"/>
+  <path d="M 365 255 L 505 255" class="line"/>
+  <path d="M 365 295 L 505 295" class="line"/>
+  <path d="M 505 335 L 365 335" class="line"/>
+  <text x="435" y="196" text-anchor="middle" class="tiny">AW/W/AR</text>
+  <text x="435" y="354" text-anchor="middle" class="tiny">R/B response</text>
+
+  <path d="M 395 545 L 505 545" class="line"/>
+  <path d="M 395 752 L 505 752" class="line"/>
+  <text x="340" y="870" text-anchor="middle" class="box-sub">32-bit AXI4-Lite address space</text>
+
+  <!-- Crypto coprocessor -->
+  <rect x="690" y="88" width="980" height="820" class="outer-red"/>
+  <text x="1180" y="128" text-anchor="middle" class="section-title-red">CRYPTO COPROCESSOR (AXI4-Lite SLAVE)</text>
+
+  <rect x="735" y="150" width="700" height="95" class="axi"/>
+  <text x="1085" y="190" text-anchor="middle" class="box-title">AXI4-Lite Slave Interface</text>
+  <text x="1085" y="220" text-anchor="middle" class="box-sub">Address / Read / Write / Response channels</text>
+
+  <path d="M 610 197 L 735 197" class="line"/>
+  <text x="672" y="180" text-anchor="middle" class="tiny">MMIO access</text>
+
+  <rect x="735" y="285" width="700" height="175" class="regfile"/>
+  <text x="1085" y="320" text-anchor="middle" class="box-title">External Register File + Buffer</text>
+  <text x="1085" y="350" text-anchor="middle" class="box-sub">CTRL / STATUS / ALGO_SEL / BUF[0..31]</text>
+
+  <rect x="765" y="380" width="115" height="55" class="panel"/>
+  <text x="822" y="402" text-anchor="middle" class="box-small">CTRL</text>
+  <text x="822" y="424" text-anchor="middle" class="tiny">START</text>
+
+  <rect x="895" y="380" width="120" height="55" class="panel"/>
+  <text x="955" y="402" text-anchor="middle" class="box-small">STATUS</text>
+  <text x="955" y="424" text-anchor="middle" class="tiny">BUSY/DONE/ERR</text>
+
+  <rect x="1030" y="380" width="120" height="55" class="panel"/>
+  <text x="1090" y="402" text-anchor="middle" class="box-small">ALGO_SEL</text>
+  <text x="1090" y="424" text-anchor="middle" class="tiny">AES/SHA/ChaCha</text>
+
+  <rect x="1165" y="380" width="240" height="55" class="panel"/>
+  <text x="1285" y="402" text-anchor="middle" class="box-small">BUF[0..31]</text>
+  <text x="1285" y="424" text-anchor="middle" class="tiny">input data and result words</text>
+
+  <path d="M 1085 245 L 1085 285" class="line"/>
+
+  <rect x="1470" y="285" width="160" height="250" class="panel"/>
+  <text x="1550" y="318" text-anchor="middle" class="box-small">Register Map</text>
+  <text x="1490" y="355" class="box-note">0x00  CTRL</text>
+  <text x="1490" y="382" class="box-note">0x04  STATUS</text>
+  <text x="1490" y="409" class="box-note">0x08  ALGO_SEL</text>
+  <text x="1490" y="436" class="box-note">0x10  BUF[0]</text>
+  <text x="1490" y="463" class="box-note">...</text>
+  <text x="1490" y="490" class="box-note">0x8C  BUF[31]</text>
+
+  <rect x="735" y="510" width="700" height="175" class="controller"/>
+  <text x="1085" y="543" text-anchor="middle" class="box-title">Operation Dispatch FSM</text>
+  <text x="1085" y="572" text-anchor="middle" class="box-sub">OP_IDLE / DISPATCH / AES_WAIT / SHA_WAIT / CHA_WAIT</text>
+
+  <rect x="760" y="600" width="225" height="65" class="panel"/>
+  <text x="872" y="625" text-anchor="middle" class="box-small">CTRL.START</text>
+  <text x="872" y="648" text-anchor="middle" class="tiny">latches ALGO_SEL</text>
+
+  <rect x="1010" y="600" width="190" height="65" class="panel"/>
+  <text x="1105" y="625" text-anchor="middle" class="box-small">op_state/op_step</text>
+  <text x="1105" y="648" text-anchor="middle" class="tiny">multi-step modes</text>
+
+  <rect x="1225" y="590" width="185" height="85" class="panel"/>
+  <text x="1317" y="615" text-anchor="middle" class="box-small">Core Start Mux</text>
+  <text x="1317" y="638" text-anchor="middle" class="tiny">aes_start / sha_start</text>
+  <text x="1317" y="658" text-anchor="middle" class="tiny">cha_start</text>
+
+  <path d="M 1085 460 L 1085 510" class="ctrl"/>
+  <path d="M 985 632 L 1010 632" class="line"/>
+  <path d="M 1200 632 L 1225 632" class="line"/>
+
+  <rect x="767" y="750" width="210" height="115" class="core-aes"/>
+  <text x="872" y="790" text-anchor="middle" class="box-title">AES-128 Core</text>
+  <text x="872" y="820" text-anchor="middle" class="box-sub">ENC / DEC / CBC / CTR</text>
+  <text x="872" y="848" text-anchor="middle" class="box-sub">GCM optional disabled</text>
+
+  <rect x="1000" y="750" width="210" height="115" class="core-sha"/>
+  <text x="1105" y="790" text-anchor="middle" class="box-title">SHA-256 Core</text>
+  <text x="1105" y="820" text-anchor="middle" class="box-sub">1-block / 2-block</text>
+  <text x="1105" y="848" text-anchor="middle" class="box-sub">digest to BUF[24..31]</text>
+
+  <rect x="1212" y="750" width="210" height="115" class="core-cha"/>
+  <text x="1317" y="790" text-anchor="middle" class="box-title">ChaCha20 Core</text>
+  <text x="1317" y="820" text-anchor="middle" class="box-sub">Stream cipher</text>
+  <text x="1317" y="848" text-anchor="middle" class="box-sub">keystream to BUF[0..15]</text>
+
+  <path d="M 1317 675 L 1317 710 L 872 710" class="ctrl-branch"/>
+  <path d="M 872 710 L 872 750" class="ctrl"/>
+  <path d="M 1105 710 L 1105 750" class="ctrl"/>
+  <path d="M 1317 710 L 1317 750" class="ctrl"/>
+
+  <path d="M 720 900 L 720 360 L 760 360" class="status"/>
+  <path d="M 720 900 L 1317 900" class="status-branch"/>
+  <path d="M 872 865 L 872 900" class="status-branch"/>
+  <path d="M 1105 865 L 1105 900" class="status-branch"/>
+  <path d="M 1317 865 L 1317 900" class="status-branch"/>
+
+  <text x="1518" y="725" class="tiny">FSM starts one core,</text>
+  <text x="1518" y="744" class="tiny">waits for done, then</text>
+  <text x="1518" y="763" class="tiny">updates BUF/STATUS</text>
+
+  <!-- Address map and data flow -->
+  <rect x="35" y="940" width="525" height="125" class="panel"/>
+  <text x="297" y="966" text-anchor="middle" class="addr-head">ADDRESS MAP (32-bit)</text>
+  <rect x="58" y="982" width="482" height="23" class="rom"/>
+  <text x="72" y="999" class="addr-cell">0x0000_0000 - 0x0FFF_FFFF</text>
+  <text x="315" y="999" class="addr-cell">Instruction ROM / boot code</text>
+  <rect x="58" y="1011" width="482" height="23" class="ram"/>
+  <text x="72" y="1028" class="addr-cell">0x1000_0000 - 0x1FFF_FFFF</text>
+  <text x="315" y="1028" class="addr-cell">Data RAM / firmware data</text>
+  <rect x="58" y="1040" width="482" height="23" class="axi"/>
+  <text x="72" y="1057" class="addr-cell">0x2000_0000 + 0x00..0x8C</text>
+  <text x="315" y="1057" class="addr-cell">Crypto MMIO registers</text>
+
+  <rect x="590" y="940" width="760" height="125" class="panel"/>
+  <text x="970" y="966" text-anchor="middle" class="addr-head">UPDATED DATA FLOW</text>
+  <rect x="620" y="990" width="115" height="55" class="rom"/>
+  <text x="677" y="1012" text-anchor="middle" class="tiny">1. CPU writes</text>
+  <text x="677" y="1030" text-anchor="middle" class="tiny">BUF input</text>
+  <path d="M 735 1018 L 775 1018" class="line"/>
+  <rect x="775" y="990" width="125" height="55" class="bus"/>
+  <text x="837" y="1012" text-anchor="middle" class="tiny">2. CPU writes</text>
+  <text x="837" y="1030" text-anchor="middle" class="tiny">CTRL.START</text>
+  <path d="M 900 1018 L 940 1018" class="line"/>
+  <rect x="940" y="990" width="135" height="55" class="controller"/>
+  <text x="1007" y="1012" text-anchor="middle" class="tiny">3. FSM</text>
+  <text x="1007" y="1030" text-anchor="middle" class="tiny">dispatches</text>
+  <path d="M 1075 1018 L 1115 1018" class="line"/>
+  <rect x="1115" y="990" width="105" height="55" class="axi"/>
+  <text x="1167" y="1012" text-anchor="middle" class="tiny">4. Crypto</text>
+  <text x="1167" y="1030" text-anchor="middle" class="tiny">processing</text>
+  <path d="M 1220 1018 L 1260 1018" class="line"/>
+  <rect x="1260" y="990" width="65" height="55" class="core-sha"/>
+  <text x="1292" y="1012" text-anchor="middle" class="tiny">DONE</text>
+  <text x="1292" y="1030" text-anchor="middle" class="tiny">= 1</text>
+
+  <rect x="1390" y="940" width="260" height="125" class="panel"/>
+  <text x="1520" y="966" text-anchor="middle" class="addr-head">LEGEND</text>
+  <line x1="1410" y1="995" x2="1470" y2="995" class="line"/>
+  <text x="1490" y="1001" class="addr-cell">AXI/local read-write</text>
+  <line x1="1410" y1="1022" x2="1470" y2="1022" class="ctrl"/>
+  <text x="1490" y="1028" class="addr-cell">Control/start path</text>
+  <line x1="1410" y1="1049" x2="1470" y2="1049" class="status"/>
+  <text x="1490" y="1055" class="addr-cell">Done/status/result path</text>
+</svg>

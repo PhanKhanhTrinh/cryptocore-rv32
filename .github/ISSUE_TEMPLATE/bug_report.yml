@@ -1,0 +1,42 @@
+name: Bug report
+description: Report incorrect RTL, firmware, simulation, or FPGA behavior.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem summary
+      description: Describe the observed behavior and the expected behavior.
+    validations:
+      required: true
+  - type: input
+    id: tool
+    attributes:
+      label: Vivado version
+      placeholder: "2025.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - RTL simulation
+        - Synthesis / implementation
+        - PYNQ-Z2 hardware
+        - Documentation
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the simulation top, firmware image, selector, input vector, and relevant transcript lines.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs or waveforms
+      description: Attach only the relevant excerpt or screenshot; do not upload an entire Vivado run directory.

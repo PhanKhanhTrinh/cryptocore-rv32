@@ -1,0 +1,54 @@
+# Vivado generated state and build products
+.Xil/
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.jou
+*.log
+*.str
+*.pb
+*.wdb
+*.wcfg
+*.dcp
+*.bit
+*.bin
+*.ltx
+*.xsa
+*.hwh
+*.rpt
+*.xpr
+*.vds
+
+# XSim generated files
+xsim.dir/
+xsim.jou
+xsim.log
+xvlog.pb
+xelab.pb
+
+# Local editor and temporary files
+*.backup.*
+*.tmp
+*.temp
+*.bak
+*~
+~$*
+.vscode/
+.idea/
+tmp/
+
+# Local dependency and QA folders
+node_modules/
+.codex_qa/
+
+# Generated local project and export directories
+build/
+artifacts/
+dist/
+
+# Working drafts and administrative documents are kept outside the repository
+docs/drafts/
+docs/private/

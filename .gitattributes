@@ -1,0 +1,22 @@
+* text=auto
+
+.gitattributes text eol=lf
+.gitignore     text eol=lf
+*.v   text eol=lf
+*.sv  text eol=lf
+*.vh  text eol=lf
+*.tcl text eol=lf
+*.xdc text eol=lf
+*.S   text eol=lf
+*.hex text eol=lf
+*.md  text eol=lf
+*.cff text eol=lf
+*.ps1 text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.pdf  binary
+*.pptx binary
